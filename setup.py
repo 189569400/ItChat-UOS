@@ -1,6 +1,6 @@
 """ A wechat personal account api project
 See:
-https://github.com/littlecodersh/ItChat
+https://github.com/why2lyj/ItChat-UOS
 """
 
 from setuptools import setup, find_packages
@@ -14,17 +14,17 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='itchat',
+    name='itchat-uos',
 
     version=itchat.__version__,
 
     description='A complete wechat personal account api',
     long_description=long_description,
 
-    url='https://github.com/littlecodersh/ItChat',
+    url='https://github.com/why2lyj/ItChat-UOS',
 
-    author='LittleCoder',
-    author_email='i7meavnktqegm1b@qq.com',
+    author='Snow Wang',
+    author_email='admin@farseer.vip',
 
     license='MIT',
 
@@ -39,6 +39,11 @@ setup(
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
     ],
 
     keywords='wechat itchat api robot weixin personal extend',

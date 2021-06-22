@@ -1,3 +1,9 @@
+# itchat-uos
+
+2017年后，新注册的微信基本登录不了网页版，itchat-uos版本利用统信UOS的网页版微信，可以让你绕过网页微信的登录限制。
+
+祝各位好运 —— By Snow
+
 # itchat
 
 [![Gitter][gitter-picture]][gitter] ![py27][py27] ![py35][py35] [English version][english-version]

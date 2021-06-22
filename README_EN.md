@@ -1,6 +1,12 @@
+# itchat-uos
+
+After year of 2017, wechat for web is limited for the new fresher, the itchat-uos version is based on chinauos web and you can replace itchat to itchat-uos to use wechat web again.
+
+Last, good luck for everyone. —— by Snow
+
 # itchat
 
-[![Gitter][gitter-picture]][gitter] ![py27][py27] ![py35][py35] [Chinese version][chinese-version]
+[![Gitter][gitter-picture]][gitter] ![py27][py27] ![py35+][py35+] [Chinese version][chinese-version]
 
 itchat is an open source api for WeChat, a commonly-used Chinese social networking app.
 
@@ -17,7 +23,7 @@ Now Wechat is an important part of personal life, hopefully this repo can help y
 itchat can be installed with this little one-line command:
 
 ```python
-pip install itchat
+pip install itchat-uos
 ```
 
 ## Simple uses
