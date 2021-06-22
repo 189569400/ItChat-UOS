@@ -23,7 +23,7 @@ itchat是一个开源的微信个人号接口，使用python调用微信从未�
 可以通过本命令安装itchat：
 
 ```python
-pip install itchat
+pip install itchat-uos
 ```
 
 ## 简单入门实例
