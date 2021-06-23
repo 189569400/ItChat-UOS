@@ -1,5 +1,8 @@
 # itchat-uos
 
+[![itchat_vesion](https://img.shields.io/badge/itchat--uos-1.4.1-green)](https://github.com/why2lyj/ItChat-UOS)
+[![Downloads](https://pepy.tech/badge/itchat-uos)](https://pepy.tech/project/itchat-uos)
+
 2017年后，新注册的微信基本登录不了网页版，itchat-uos版本利用统信UOS的网页版微信，可以让你绕过网页微信的登录限制。
 
 你只需要执行下条命令便能复活Itchat
