@@ -1,7 +1,6 @@
 import requests
 
 from . import storage
-from .components import load_components
 
 class Core(object):
     def __init__(self):
@@ -455,5 +454,3 @@ class Core(object):
         return self.storageClass.search_chatrooms(name, userName)
     def search_mps(self, name=None, userName=None):
         return self.storageClass.search_mps(name, userName)
-
-load_components(Core)

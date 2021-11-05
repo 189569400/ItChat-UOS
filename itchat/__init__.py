@@ -1,6 +1,5 @@
-from . import content
 from .core import Core
-from .config import VERSION
+from .config import VERSION, ASYNC_COMPONENTS
 from .log import set_logging
 
 __version__ = VERSION
@@ -8,6 +7,13 @@ __version__ = VERSION
 instanceList = []
 
 def new_instance():
+    # init core object function ~~~ [Bad Design, but it works]
+    if ASYNC_COMPONENTS:
+        from itchat.async_components import load_components
+    else:
+        from itchat.components import load_components
+    load_components(Core)
+
     newInstance = Core()
     instanceList.append(newInstance)
     return newInstance
