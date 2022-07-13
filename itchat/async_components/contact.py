@@ -3,6 +3,7 @@ import json, copy
 import logging
 
 from .. import config, utils
+from ..components.contact import accept_friend
 from ..returnvalues import ReturnValue
 from ..storage import contact_change
 from ..utils import update_info_dict
@@ -18,7 +19,7 @@ def load_contact(core):
     core.get_mps                     = get_mps
     core.set_alias                   = set_alias
     core.set_pinned                  = set_pinned
-    core.add_friend                  = add_friend
+    core.accept_friend               = accept_friend
     core.get_head_img                = get_head_img
     core.create_chatroom             = create_chatroom
     core.set_chatroom_name           = set_chatroom_name
@@ -350,21 +351,16 @@ def set_pinned(self, userName, isPinned=True):
     r = self.s.post(url, json=data, headers=headers)
     return ReturnValue(rawResponse=r)
 
-def add_friend(self, userName, status=2, verifyContent='', autoUpdate=True):
-    ''' Add a friend or accept a friend
-        * for adding status should be 2
-        * for accepting status should be 3
-    '''
-    url = '%s/webwxverifyuser?r=%s&pass_ticket=%s' % (
-        self.loginInfo['url'], int(time.time()), self.loginInfo['pass_ticket'])
+def accept_friend(self, userName, v4= '', autoUpdate=True):
+    url = f"{self.loginInfo['url']}/webwxverifyuser?r={int(time.time())}&pass_ticket={self.loginInfo['pass_ticket']}"
     data = {
         'BaseRequest': self.loginInfo['BaseRequest'],
-        'Opcode': status, # 3
+        'Opcode': 3, # 3
         'VerifyUserListSize': 1,
         'VerifyUserList': [{
             'Value': userName,
-            'VerifyUserTicket': '', }],
-        'VerifyContent': verifyContent,
+            'VerifyUserTicket': v4, }],
+        'VerifyContent': '',
         'SceneListCount': 1,
         'SceneList': [33],
         'skey': self.loginInfo['skey'], }
@@ -426,8 +422,8 @@ def create_chatroom(self, memberList, topic=''):
         self.loginInfo['url'], self.loginInfo['pass_ticket'], int(time.time()))
     data = {
         'BaseRequest': self.loginInfo['BaseRequest'],
-        'MemberCount': len(memberList),
-        'MemberList': [{'UserName': member['UserName']} for member in memberList],
+        'MemberCount': len(memberList.split(',')),
+        'MemberList': [{'UserName': member} for member in memberList.split(',')],
         'Topic': topic, }
     headers = {
         'content-type': 'application/json; charset=UTF-8',
@@ -484,7 +480,7 @@ def add_member_into_chatroom(self, chatroomUserName, memberList,
     params = {
         'BaseRequest'  : self.loginInfo['BaseRequest'],
         'ChatRoomName' : chatroomUserName,
-        memberKeyName  : ','.join([member['UserName'] for member in memberList]), }
+        memberKeyName  : memberList, }
     headers = {
         'content-type': 'application/json; charset=UTF-8',
         'User-Agent' : config.USER_AGENT}
