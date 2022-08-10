@@ -8,7 +8,7 @@
 你只需要执行下条命令便能复活Itchat
 
 ```python 
-pip install itchat-uos
+pip install itchat-uos==1.5.0.dev0
 ```
 
 祝各位好运 —— By Snow
